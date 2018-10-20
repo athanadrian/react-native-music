@@ -1,0 +1,8 @@
+"name": "гнѓщ",
+    "lat": 37.9256973,
+    "lng": 23.7987232,
+    "placeType": "crag",
+    "imagePath": "assets/images/crags/attiki/sesi/sesi.jpg",
+    "icon": "assets/images/markers/crag.png",
+    "draggable": false,
+    "routes": []

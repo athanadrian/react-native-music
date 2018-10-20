@@ -1,0 +1,8 @@
+    "name": "Λελάκι",
+    "lat": 37.9148712,
+    "lng": 23.7922878,
+    "placeType": "crag",
+    "imagePath": "assets/images/crags/attiki/lelaki/",
+    "icon": "assets/images/markers/crag.png",
+    "draggable": false,
+    "routes": []
