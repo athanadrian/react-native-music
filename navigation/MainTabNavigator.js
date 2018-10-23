@@ -15,13 +15,15 @@ import AlbumDetailScreen from "../screens/AlbumDetailScreen";
 import AlbumsScreen from "../screens/AlbumsScreen";
 import CragsScreen from "../screens/CragsScreen";
 import StorageScreen from "../screens/StorageScreen";
+import FavoriteScreen from "../screens/FavoriteScreen";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Payments: PaymentsScreen,
   Albums: AlbumsScreen,
   AlbumDetail: AlbumDetailScreen,
-  Crags: CragsScreen
+  Crags: CragsScreen,
+  Favorites: FavoriteScreen
 });
 
 HomeStack.navigationOptions = {

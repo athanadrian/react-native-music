@@ -69,7 +69,14 @@ export default class AlbumsScreen extends React.Component {
     const favoriteAlbums = await actions.retrieveData("favoriteAlbums") || {};
 
     if (favoriteAlbums[album.id]) {
-      // return message album already exists
+      Alert.alert(
+        'Cannot add album',
+        `Album ${album.title} already exists in favorites.`,
+        [
+          { text: 'Keep on going...', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false }
+      )
       return false;
     }
 
@@ -80,7 +87,7 @@ export default class AlbumsScreen extends React.Component {
       console.log('suc', success);
       Alert.alert(
         'Album added',
-        `Album ${album.title} from ${this.state.artist.name} was added too favorites.`,
+        `Album ${album.title} from ${this.state.artist} was added too favorites.`,
         [
           { text: 'Keep on going...', onPress: () => console.log('OK Pressed') },
         ],

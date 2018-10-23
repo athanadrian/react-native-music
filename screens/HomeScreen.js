@@ -19,7 +19,8 @@ const menuList=[
     subTitle:'Search your favorite music',
     icon:'music',
     navigateTo:'Albums'
-  },{
+  },
+  {
     title:'Search Crag',
     subTitle:'Search your favorite crags',
     icon:'music',
@@ -29,7 +30,7 @@ const menuList=[
     title:'Favorite Collections',
     subTitrle:'Access your favorite albums',
     icon:'heart',
-    navigateTo:'#'
+    navigateTo:'Favorites'
   },
   {
     title:'Settings',

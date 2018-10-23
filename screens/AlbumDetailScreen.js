@@ -39,9 +39,16 @@ export default class AlbumDetailScreen extends React.Component {
           albumData['tracks'] = {}
       }
 
-      if(albumData['tracks'][track.id]){
-        // message the track already exists  
-        return false;
+      if (albumData['tracks'][track.id]) {
+          Alert.alert(
+              'Cannot add track',
+              `Track ${track.title} already exists in favorites.`,
+              [
+                  { text: 'Keep on going...', onPress: () => console.log('OK Pressed') },
+              ],
+              { cancelable: false }
+          )
+          return false;
       }
       albumData['tracks'][track.id] = track;
       favoriteAlbums[album.id] = albumData;
@@ -51,7 +58,7 @@ export default class AlbumDetailScreen extends React.Component {
           console.log('success:', success);
           Alert.alert(
               'Track added',
-              `Track ${track.title} from ${track.artist.name} was added too favorites.`,
+              `Track ${track.title} from ${track.artist.name} was added to favorites.`,
               [
                   { text: 'Keep on going...', onPress: () => console.log('OK Pressed') },
               ],

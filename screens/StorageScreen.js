@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text } from 'react-native';
-import { Button } from 'react-native-elements';
+import { ScrollView, StyleSheet, View, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Button, Divider, Text } from 'react-native-elements';
 
 import * as actions from '../actions';
 
@@ -52,7 +52,6 @@ export default class StorageScreen extends React.Component {
       }
   }
 
-
   render() {
       const {value} = this.state
     return (
@@ -72,7 +71,23 @@ export default class StorageScreen extends React.Component {
           title='Remove Data'
           onPress={() => {this.removeData()}}
         />
-        <Text>{value}</Text>
+        <Text h4>{value}</Text>
+
+        <Divider style={{ backgroundColor: "black" }} />
+
+        <View style={styles.centerItems}>
+          <Text h3>Touchables</Text>
+          <TouchableHighlight onPress={() => { }} underlayColor="white">
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>TouchableHighlight</Text>
+            </View>
+          </TouchableHighlight>
+          <TouchableOpacity onPress={this._onPressButton}>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>TouchableOpacity</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     );
   }
@@ -82,6 +97,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff"
   },
+  centerItems:{
+    alignItems: 'center'
+  },
+  button: {
+    marginBottom: 30,
+    width: 260,
+    alignItems: "center",
+    backgroundColor: "#2196F3"
+  },
+  buttonText: {
+    padding: 20,
+    color: "white"
+  }
 });
