@@ -21,9 +21,9 @@ const menuList=[
     navigateTo:'Albums'
   },
   {
-    title:'Search Crag',
-    subTitle:'Search your favorite crags',
-    icon:'music',
+    title:'Crags',
+    subTitle:'Check your listed crags',
+    icon:'info',
     navigateTo:'Crags'
   },
   {

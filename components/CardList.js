@@ -6,17 +6,7 @@ export class CardList extends React.Component {
 
     renderData = () => {
         const {data, titleKey, imageKey, bottomView} = this.props;
-
-        // return data.map((item, index) => {
-        //     return (
-        //         <Card
-        //             key={index}
-        //             title={index + 1 + ". " + item[titleKey]}
-        //             image={{ uri: item[imageKey] }}>
-        //             {bottomView(item)}>
-        //         </Card>
-        //     )
-        // });
+        
         return (
             <FlatList data={data}
                 keyExtractor={(item, index)=>index.toString()}

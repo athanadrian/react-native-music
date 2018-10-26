@@ -18,12 +18,37 @@ export default class CragsScreen extends React.Component {
     super();
     this.state={
       //crags=actions.getCrags()
-      crags:[]
+      crags:[],
     }
     actions.getCrags().then((crags) => {
-      this.setState({crags});
+      this.setState({ crags });
       console.log('crags', crags)
     });
+  }
+
+  renderBottomNavigation(crag){
+    return(
+      <View style={styles.cragMenu}>
+        <Icon onPress={() => {}}
+              raised
+              name='location-arrow'
+              type='font-awesome'
+              color='#37BA91'
+              size={30} />
+        <Icon onPress={() => {}}
+              raised
+              name='info'
+              type='font-awesome'
+              color='#37BA91'
+              size={30} />
+        <Icon onPress={() => {}}
+              raised
+              name='thumbs-up'
+              type='font-awesome'
+              color='#37BA91'
+              size={30} />
+      </View>
+    )
   }
 
   renderCragRoutes(routes) {
@@ -32,12 +57,19 @@ export default class CragsScreen extends React.Component {
         return (
           <ListItem
             key={index}
-            title={route.name}
-            leftIcon={{ name: 'play-arrow' }}
+            title={
+              <Text>Name: {route.name}</Text>
+            }
+            subtitle={
+              <View style={styles.subtitleView}>
+                <Text>{route.grade} - {route.height}m</Text>
+              </View>
+            }
+            // leftIcon={{ name: 'info' }}
             rightIcon={
               <Icon
                 raised
-                name='music'
+                name='info'
                 type='font-awesome'
                 color='#f50'
                 onPress={() =>{}} />
@@ -50,30 +82,17 @@ export default class CragsScreen extends React.Component {
 
   renderAllCrags() {
     const { crags } = this.state;
-
+    
     if (crags) {
       return _.map(crags, (crag, _id) => {
-        const image = crag.imagePath
         return (
           <View key={_id}>
             <Card
               title={crag.name}
-              // image={require(image)}
+              image={require(`../assets/images/unknown.jpg`)}
             >
-            <Image
-            resizeMode="cover"
-            source={{ uri: crag.imagePath }}
-          />
-                <Button
-                  title='Delete Album'
-                  raised
-                  type='font-awesome'
-                  backgroundColor='#f50'
-                  name='trash'
-                  onPress={() =>{}}
-              />
-              <Text>{crag.imagePath}</Text>
               { this.renderCragRoutes(crag.routes)}
+              { this.renderBottomNavigation(crag)}
             </Card>
           </View>
         )
@@ -91,21 +110,6 @@ export default class CragsScreen extends React.Component {
     );
   }
 
-  // render() {
-  //   const { crags } = this.state;
-  //   return crags.map((item, index) => {
-  //     return (
-  //       <View style={styles.container}>
-  //         <Card
-  //           key={index}
-  //           title={index + 1 + ". " + item.name}
-  //         >
-  //           {this.renderCragRoutes(item.routes)}
-  //         </Card>
-  //       </View>
-  //     )
-  //   })
-  // }
 }
 
 const styles = StyleSheet.create({
@@ -116,5 +120,14 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     backgroundColor: "#eaeaea"
+  },
+  subtitleView: {
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 2
+  },
+  cragMenu: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   }
 });
